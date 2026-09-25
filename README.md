@@ -1570,25 +1570,34 @@ The empirical data demonstrates a clear performance superiority of **Proxmox VE 
 ## 10. Repository Structure & Reproduction
 
 ### Folder Layout
+
 ```text
 CC-Experiment-01-Hypervisor-Analysis/
 |
-+-- README.md                                  # Main Project & Benchmark Report
-+-- LAB_REPORT.md                              # Formal Academic Lab Report Submission
-+-- Lab-Manual-Hypervisor-Performance-Analysis (1).docx  # Reference Lab Manual Document
++-- screenshots/
+|   |
+|   +-- type1-proxmox/
+|   |   +-- 01-proxmox-dashboard.png
+|   |   +-- 02-proxmox-vm-configuration.png
+|   |   +-- 03-proxmox-vm-running.png
+|   |   +-- 04-proxmox-ubuntu-console.png
+|   |   +-- 05-proxmox-system-configuration.png
+|   |   +-- 06-proxmox-sysbench-result.png
+|   |   +-- 07-proxmox-resource-monitoring.png
+|   |
+|   +-- type2-vmware/
+|   |   +-- 01-vmware-vm-configuration.png
+|   |   +-- 02-vmware-vm-running.png
+|   |   +-- 03-vmware-system-configuration.png
+|   |   +-- 04-vmware-sysbench-result.png
+|   |
+|   +-- comparison/
+|       +-- 01-hypervisor-performance-comparison.png
 |
-+-- images/                                    # Screenshots & Generated Charts
-|   +-- 1.png                                  # Proxmox VE Sysbench Result Screenshot
-|   +-- 2.png                                  # VMware Workstation Sysbench Result Screenshot
-|   +-- events_per_second_comparison.png       # Throughput Comparison Graph
-|   +-- latency_comparison.png                 # Latency Metrics Graph
-|   +-- total_events_comparison.png            # Total Events Graph
-|   +-- overall_performance_dashboard.png      # Multi-panel Dashboard
++-- results/
+|   +-- performance-analysis.md
 |
-+-- scripts/                                   # Automation & Plotting Scripts
-    +-- benchmark.sh                           # Sysbench Automation Script
-    +-- generate_plots.py                      # Matplotlib Visualization Generator
-    +-- parse_sysbench.py                      # Results Parser & Ratio Calculator
++-- README.md
 ```
 
 

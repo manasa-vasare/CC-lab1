@@ -9,13 +9,13 @@
 
 ## Executive Summary
 
-This repository contains the complete experimental setup, empirical benchmark data, performance visualization, and technical report comparing the CPU performance of a **Type-1 Bare-Metal Hypervisor (Proxmox VE)** and a **Type-2 Hosted Hypervisor (VMware Workstation)**.
+This repository contains the complete experimental setup, empirical benchmark data, performance visualization, and technical report comparing the CPU performance of a **Type-1 Bare-Metal Hypervisor - Proxmox VE)** and a **Type-2 Hosted Hypervisor - VMware Workstation)**.
 
 Both hypervisors were deployed with identically configured **Ubuntu Virtual Machines** (2 vCPU, 2 GB RAM, 20 GB Disk). The standard `sysbench` CPU prime-number calculation benchmark (`--cpu-max-prime=20000`) was executed on both virtual machines under identical workload conditions.
 
 ### Key Finding
 
-> **Proxmox VE (Type-1 Hypervisor) achieved 1,716.69 Events/sec compared to VMware Workstation's 1,364.78 Events/sec — demonstrating a +25.79% throughput advantage and a 20.55% reduction in average latency.**
+> **Proxmox VE (Type-1 Hypervisor) achieved 1,716.69 Events/sec compared to VMware Workstation's 1,364.78 Events/sec - demonstrating a +25.79% throughput advantage and a 20.55% reduction in average latency.**
 
 ---
 
@@ -50,7 +50,7 @@ The primary objectives of this Cloud Computing laboratory experiment are:
 
 ## 2. Hypervisor Architectural Comparison
 
-### Type-1 Hypervisor — Proxmox VE (Bare-Metal Architecture)
+### Type-1 Hypervisor - Proxmox VE (Bare-Metal Architecture)
 
 Proxmox VE runs directly on the bare-metal physical host hardware. The Linux kernel integrated with KVM (Kernel-based Virtual Machine) acts as the hypervisor. Guest operating system instructions execute directly on hardware CPU VT-x/AMD-V extensions without passing through an intermediate desktop operating system.
 
@@ -82,7 +82,7 @@ graph TD
 
 ---
 
-### Type-2 Hypervisor — VMware Workstation (Hosted Architecture)
+### Type-2 Hypervisor - VMware Workstation (Hosted Architecture)
 
 VMware Workstation runs as an application process on top of a host operating system (Windows 11/10). CPU requests from the guest VM must navigate through the VMware VMM engine, translate through host OS system calls, and be scheduled by the Windows NT kernel scheduler before reaching physical hardware.
 
@@ -140,25 +140,25 @@ To guarantee scientific accuracy and eliminate resource skewing, identical confi
 
 ## 4. Experimental Procedure
 
-**PREREQUISITES**
+### PREREQUISITES
 
 _Type-1 vs Type-2 Hypervisor Performance Analysis Experiment_
 
 Before performing the experiment, ensure that the following requirements are available and configured.
 
-**1\. Hardware and Software Requirements**
+#### 1. Hardware and Software Requirements
 
 | **Component**              | **Requirement**                 |
 | -------------------------- | ------------------------------- |
-| Type-1 Hypervisor          | Proxmox VE                      |
-| Type-2 Hypervisor          | VMware Workstation              |
+| Type-1 Hypervisor - Proxmox VE                      |
+| Type-2 Hypervisor - VMware Workstation              |
 | Guest Operating System     | Ubuntu 22.04 or later           |
 | Web Browser                | Google Chrome / Mozilla Firefox |
 | Performance Testing Tool   | Sysbench                        |
 | Version Control System     | Git                             |
 | Remote Repository Platform | GitHub Account                  |
 
-**2\. Proxmox VE Access Requirements**
+#### 2. Proxmox VE Access Requirements
 
 Ensure that the following information is available before accessing the Type-1 hypervisor environment.
 
@@ -176,7 +176,7 @@ The Proxmox VE server can be accessed using:
 https://<PROXMOX_SERVER_IP>:8006
 ```
 
-**3\. VMware Workstation Requirements**
+#### 3. VMware Workstation Requirements
 
 Ensure that VMware Workstation is installed on the local system before beginning the Type-2 hypervisor analysis.
 
@@ -189,7 +189,7 @@ The following resources must be available:
 - Internet connectivity for installing Sysbench
 - Git installed on the system
 
-**4\. Standard Virtual Machine Configuration**
+#### 4. Standard Virtual Machine Configuration
 
 To ensure a fair performance comparison, the same virtual machine configuration must be used for both Type-1 and Type-2 hypervisors.
 
@@ -204,11 +204,11 @@ To ensure a fair performance comparison, the same virtual machine configuration 
 
 **Important:** Both Proxmox VE and VMware Workstation virtual machines must use identical resource configurations for performance comparison.
 
-**5\. Screenshots Required for GitHub Submission**
+#### 5. Screenshots Required for GitHub Submission
 
 Screenshots must be captured during the experiment and uploaded to the GitHub repository as implementation evidence. The following screenshots are mandatory.
 
-**5.1 Type-1 Hypervisor – Proxmox VE Screenshots**
+**5.1 Type-1 Hypervisor - Proxmox VE Screenshots**
 
 **Screenshot 1: Proxmox VE Dashboard**
 
@@ -328,7 +328,7 @@ Capture the resource usage graphs showing:
 
 **File Name:** 07-proxmox-resource-monitoring.png
 
-**5.2 Type-2 Hypervisor – VMware Workstation Screenshots**
+**5.2 Type-2 Hypervisor - VMware Workstation Screenshots**
 
 **Screenshot 8: VMware Virtual Machine Configuration**
 
@@ -409,49 +409,15 @@ Capture the completed comparison table.
 
 **File Name:** 01-hypervisor-performance-comparison.png
 
-**6\. Screenshot Storage Structure**
-
-Store all screenshots using the following directory structure before pushing the experiment to GitHub.
-
-```
-```text
-CC-Experiment-01-Hypervisor-Analysis/
-|
-+-- screenshots/
-|   |
-|   +-- type1-proxmox/
-|   |   +-- 01-proxmox-dashboard.png
-|   |   +-- 02-proxmox-vm-configuration.png
-|   |   +-- 03-proxmox-vm-running.png
-|   |   +-- 04-proxmox-ubuntu-console.png
-|   |   +-- 05-proxmox-system-configuration.png
-|   |   +-- 06-proxmox-sysbench-result.png
-|   |   +-- 07-proxmox-resource-monitoring.png
-|   |
-|   +-- type2-vmware/
-|   |   +-- 01-vmware-vm-configuration.png
-|   |   +-- 02-vmware-vm-running.png
-|   |   +-- 03-vmware-system-configuration.png
-|   |   +-- 04-vmware-sysbench-result.png
-|   |
-|   +-- comparison/
-|       +-- 01-hypervisor-performance-comparison.png
-|
-+-- results/
-|   +-- performance-analysis.md
-|
-+-- README.md
-```
-```
 
 
-**PART A: PERFORMANCE ANALYSIS USING TYPE-1 HYPERVISOR – PROXMOX VE**
+### PART A: PERFORMANCE ANALYSIS USING TYPE-1 HYPERVISOR – PROXMOX VE
 
-**1\. Accessing the Proxmox VE Web Interface**
+#### 1. Accessing the Proxmox VE Web Interface
 
 Proxmox VE is deployed on a centralized physical server and can be accessed remotely through its web-based management interface.
 
-**Procedure**
+#### Procedure
 
 1. Connect the system to the network where the Proxmox VE server is accessible.
 2. Open a supported web browser.
@@ -473,7 +439,7 @@ https://192.168.X.X:8006
 
 _The Proxmox VE server IP address and login credentials must be provided before beginning the experiment._
 
-**2\. Accessing the Proxmox VE Login Page**
+#### 2. Accessing the Proxmox VE Login Page
 
 A browser security warning may appear because Proxmox VE uses a self-signed SSL certificate.
 
@@ -483,7 +449,7 @@ A browser security warning may appear because Proxmox VE uses a self-signed SSL 
 
 _The Proxmox VE login page will be displayed._
 
-**3\. Logging in to Proxmox VE**
+#### 3. Logging in to Proxmox VE
 
 Enter the assigned login credentials.
 
@@ -497,7 +463,7 @@ Enter the assigned login credentials.
 
 _After successful authentication, the Proxmox VE management dashboard will be displayed._
 
-**4\. Understanding the Proxmox VE Interface**
+#### 4. Understanding the Proxmox VE Interface
 
 The left-side navigation panel contains the Proxmox VE infrastructure hierarchy.
 
@@ -520,7 +486,7 @@ The Proxmox VE interface provides access to:
 - Network configuration
 - CPU and memory utilization
 
-**5\. Creating a Virtual Machine in Proxmox VE**
+#### 5. Creating a Virtual Machine in Proxmox VE
 
 A virtual machine is created using the Create VM wizard available in the Proxmox VE web interface.
 
@@ -530,7 +496,7 @@ The VM creation process consists of the following stages:
 General -> OS -> System -> Disks -> CPU -> Memory -> Network -> Confirm
 ```
 
-**Step 1: Select the Proxmox Node**
+##### Step 1: Select the Proxmox Node
 
 From the left-side navigation panel:
 
@@ -545,13 +511,13 @@ Datacenter -> pve
 
 _The node summary page will be displayed._
 
-**Step 2: Open the Create VM Wizard**
+##### Step 2: Open the Create VM Wizard
 
 **Click the Create VM button located in the upper-right corner of the Proxmox VE interface.**
 
 _The Create: Virtual Machine configuration wizard will open._
 
-**6\. Configuring General Settings**
+#### 6. Configuring General Settings
 
 The first section of the VM creation wizard is General.
 
@@ -577,11 +543,11 @@ CC-Experiment1-Type1
 
 **After completing the configuration, click Next.**
 
-**7\. Configuring the Operating System**
+#### 7. Configuring the Operating System
 
 The next section is OS.
 
-**Procedure**
+#### Procedure
 
 1. Select Use CD/DVD Disc Image File (ISO).
 2. Select the storage location containing the ISO image.
@@ -604,7 +570,7 @@ The configuration should be:
 
 **Click Next.**
 
-**8\. Configuring System Settings**
+#### 8. Configuring System Settings
 
 The System section configures the virtual machine hardware platform.
 
@@ -619,7 +585,7 @@ Use the default settings unless otherwise specified.
 
 **Click Next.**
 
-**9\. Configuring Virtual Disk**
+#### 9. Configuring Virtual Disk
 
 The Disks section is used to configure virtual storage for the VM.
 
@@ -633,7 +599,7 @@ Configure the following parameters:
 
 **Click Next.**
 
-**10\. Configuring CPU Resources**
+#### 10. Configuring CPU Resources
 
 The CPU section is used to allocate virtual processor resources.
 
@@ -648,7 +614,7 @@ _Therefore: Total vCPU = 2_
 
 **Click Next.**
 
-**11\. Configuring Memory Resources**
+#### 11. Configuring Memory Resources
 
 The Memory section is used to allocate RAM to the virtual machine.
 
@@ -662,7 +628,7 @@ _Equivalent memory allocation: 2048 MiB = 2 GB RAM_
 
 **Click Next.**
 
-**12\. Configuring Network**
+#### 12. Configuring Network
 
 The Network section configures the virtual network interface.
 
@@ -677,7 +643,7 @@ _The vmbr0 bridge connects the virtual machine to the configured network._
 
 **Click Next.**
 
-**13\. Confirming Virtual Machine Configuration**
+#### 13. Confirming Virtual Machine Configuration
 
 The final section is Confirm.
 
@@ -696,7 +662,7 @@ Review the complete configuration.
 
 _The virtual machine will be created._
 
-**14\. Verifying the Created Virtual Machine**
+#### 14. Verifying the Created Virtual Machine
 
 After successful VM creation:
 
@@ -718,7 +684,7 @@ Datacenter
        +-- VM-ID (CC-Experiment1-Type1)
 ```
 
-**15\. Starting the Virtual Machine**
+#### 15. Starting the Virtual Machine
 
 **Select the created virtual machine.**
 
@@ -726,7 +692,7 @@ Datacenter
 
 _The VM status will change from Stopped to Running._
 
-**16\. Opening the Virtual Machine Console**
+#### 16. Opening the Virtual Machine Console
 
 After starting the VM:
 
@@ -737,7 +703,7 @@ _The virtual machine display will open within the browser._
 
 _The Ubuntu installation interface will be displayed._
 
-**17\. Installing Ubuntu Operating System**
+#### 17. Installing Ubuntu Operating System
 
 Complete the Ubuntu installation using the following general procedure:
 
@@ -753,7 +719,7 @@ Complete the Ubuntu installation using the following general procedure:
 
 _After restarting, log in to the Ubuntu virtual machine._
 
-**18\. Verifying the Virtual Machine**
+#### 18. Verifying the Virtual Machine
 
 Open the terminal in the Ubuntu virtual machine and execute:
 
@@ -768,7 +734,7 @@ Verify the following information:
 - Kernel Version
 - Architecture
 
-**19\. Analyzing CPU Configuration**
+#### 19. Analyzing CPU Configuration
 
 Execute:
 
@@ -785,7 +751,7 @@ Observe the following parameters:
 
 _Record the output for performance analysis._
 
-**20\. Analyzing Memory Configuration**
+#### 20. Analyzing Memory Configuration
 
 Execute:
 
@@ -802,7 +768,7 @@ Observe:
 
 _Record the output._
 
-**21\. Analyzing Disk Configuration**
+#### 21. Analyzing Disk Configuration
 
 Execute:
 
@@ -819,7 +785,7 @@ Observe:
 
 _Record the output._
 
-**22\. Monitoring System Resource Utilization**
+#### 22. Monitoring System Resource Utilization
 
 Execute:
 
@@ -842,7 +808,7 @@ q
 
 _to exit the monitoring interface._
 
-**23\. Installing Sysbench**
+#### 23. Installing Sysbench
 
 Sysbench is used to perform CPU performance analysis.
 
@@ -864,7 +830,7 @@ Verify the installation:
 sysbench --version
 ```
 
-**24\. Performing CPU Performance Analysis**
+#### 24. Performing CPU Performance Analysis
 
 Execute the following benchmark:
 
@@ -879,11 +845,11 @@ Record the following values:
 - Events per second
 - Latency statistics
 
-**25\. Observation Table – Type-1 Hypervisor**
+#### 25. Observation Table - Type-1 Hypervisor
 
 | **Parameter**          | **Observation** |
 | ---------------------- | --------------- |
-| Hypervisor             | Proxmox VE      |
+| Hypervisor - Proxmox VE      |
 | Hypervisor Type        | Type-1          |
 | Guest Operating System | Ubuntu          |
 | CPU Allocation         | 2 vCPU          |
@@ -894,7 +860,7 @@ Record the following values:
 | Events per Second      |                 |
 | Average Latency        |                 |
 
-**26\. Monitoring VM Resources from Proxmox VE**
+#### 26. Monitoring VM Resources from Proxmox VE
 
 Return to the Proxmox VE web interface.
 
@@ -913,7 +879,7 @@ Observe the following resource utilization parameters:
 
 _Record the observations for comparison with the Type-2 hypervisor._
 
-**27\. Shutting Down the Virtual Machine**
+#### 27. Shutting Down the Virtual Machine
 
 After completing the analysis, shut down the virtual machine properly.
 
@@ -929,7 +895,7 @@ _Verify that the VM status changes to Stopped._
 
 
 
-**PART B: PERFORMANCE ANALYSIS USING TYPE-2 HYPERVISOR – VMWARE WORKSTATION**
+### PART B: PERFORMANCE ANALYSIS USING TYPE-2 HYPERVISOR – VMWARE WORKSTATION
 
 VMware Workstation is a Type-2 hypervisor that runs on top of a host operating system.
 
@@ -937,7 +903,7 @@ In this experiment, a virtual machine is created using VMware Workstation with t
 
 The performance of the virtual machine is then analyzed using Sysbench.
 
-**1\. Launching VMware Workstation**
+#### 1. Launching VMware Workstation
 
 **Open VMware Workstation from the installed applications.**
 
@@ -947,7 +913,7 @@ _The VMware Workstation home interface will be displayed._
 
 _The New Virtual Machine Wizard will open._
 
-**2\. Selecting the Virtual Machine Configuration**
+#### 2. Selecting the Virtual Machine Configuration
 
 The wizard displays the following options:
 
@@ -958,7 +924,7 @@ The wizard displays the following options:
 
 **Click: Next**
 
-**3\. Selecting the Guest Operating System Installation Method**
+#### 3. Selecting the Guest Operating System Installation Method
 
 The next window displays the installation media options.
 
@@ -976,7 +942,7 @@ ubuntu-22.04.iso
 
 **After selecting the ISO file, click: Next**
 
-**4\. Selecting the Guest Operating System**
+#### 4. Selecting the Guest Operating System
 
 If VMware detects the operating system automatically, verify the detected configuration.
 
@@ -989,7 +955,7 @@ Otherwise, select:
 
 **Click: Next**
 
-**5\. Naming the Virtual Machine**
+#### 5. Naming the Virtual Machine
 
 Enter a name for the virtual machine.
 
@@ -1003,7 +969,7 @@ Select the location where the virtual machine files will be stored.
 
 **Click: Next**
 
-**6\. Configuring Virtual Disk Capacity**
+#### 6. Configuring Virtual Disk Capacity
 
 The disk configuration window will be displayed.
 
@@ -1018,7 +984,7 @@ Configure the following:
 
 _The virtual machine configuration summary will be displayed._
 
-**7\. Customizing Virtual Machine Hardware**
+#### 7. Customizing Virtual Machine Hardware
 
 Before completing the VM creation process, click:
 
@@ -1091,7 +1057,7 @@ Verify the following configuration before closing the hardware settings window.
 
 _The New Virtual Machine Wizard will be displayed again._
 
-**8\. Completing Virtual Machine Creation**
+#### 8. Completing Virtual Machine Creation
 
 Review the virtual machine configuration.
 
@@ -1099,7 +1065,7 @@ Review the virtual machine configuration.
 
 _The newly created virtual machine will appear in the VMware Workstation library._
 
-**9\. Starting the Virtual Machine**
+#### 9. Starting the Virtual Machine
 
 **Select the created virtual machine from the VMware Workstation library.**
 
@@ -1107,25 +1073,25 @@ _The newly created virtual machine will appear in the VMware Workstation library
 
 _The Ubuntu installation process will begin._
 
-**10\. Installing Ubuntu Operating System**
+#### 10. Installing Ubuntu Operating System
 
 The Ubuntu installation interface will be displayed inside the VMware virtual machine.
 
 Complete the installation using the following procedure.
 
-**Step 1: Select Language**
+##### Step 1: Select Language
 
 **Select the required language.**
 
 **Click: Install Ubuntu**
 
-**Step 2: Configure Keyboard Layout**
+##### Step 2: Configure Keyboard Layout
 
 **Select the appropriate keyboard layout.**
 
 **Click: Continue**
 
-**Step 3: Select Installation Type**
+##### Step 3: Select Installation Type
 
 Select the appropriate installation option.
 
@@ -1135,7 +1101,7 @@ For a standard installation, select:
 
 **Click: Continue**
 
-**Step 4: Configure Installation Disk**
+##### Step 4: Configure Installation Disk
 
 **Select: Erase disk and install Ubuntu**
 
@@ -1145,13 +1111,13 @@ _Note: This operation affects only the virtual hard disk created for the VMware 
 
 _Confirm the disk changes when prompted._
 
-**Step 5: Select Time Zone**
+##### Step 5: Select Time Zone
 
 **Select the appropriate geographical location and timezone.**
 
 **Click: Continue**
 
-**Step 6: Create User Account**
+##### Step 6: Create User Account
 
 Configure the Ubuntu user account.
 
@@ -1168,7 +1134,7 @@ Enter:
 
 _Ubuntu installation will begin._
 
-**11\. Restarting the Virtual Machine**
+#### 11. Restarting the Virtual Machine
 
 After the installation is complete, select:
 
@@ -1178,7 +1144,7 @@ _The virtual machine will restart._
 
 _Log in using the username and password created during the installation process._
 
-**12\. Verifying the Virtual Machine Configuration**
+#### 12. Verifying the Virtual Machine Configuration
 
 After logging in to Ubuntu, open the Terminal.
 
@@ -1195,7 +1161,7 @@ Verify the following information:
 - Kernel Version
 - Architecture
 
-**13\. Verifying CPU Configuration**
+#### 13. Verifying CPU Configuration
 
 Execute:
 
@@ -1215,7 +1181,7 @@ Observe the following parameters:
 
 _Verify that the VM is configured with approximately 2 Virtual CPUs._
 
-**14\. Verifying Memory Configuration**
+#### 14. Verifying Memory Configuration
 
 Execute:
 
@@ -1232,7 +1198,7 @@ Observe:
 
 _Verify that the allocated memory is approximately 2 GB._
 
-**15\. Verifying Disk Configuration**
+#### 15. Verifying Disk Configuration
 
 Execute:
 
@@ -1249,7 +1215,7 @@ Observe:
 
 _Verify the virtual disk configuration._
 
-**16\. Monitoring System Resource Utilization**
+#### 16. Monitoring System Resource Utilization
 
 Execute:
 
@@ -1272,7 +1238,7 @@ q
 
 _to exit._
 
-**17\. Installing Sysbench**
+#### 17. Installing Sysbench
 
 Sysbench is used to perform CPU performance analysis.
 
@@ -1296,7 +1262,7 @@ sysbench --version
 
 _The installed Sysbench version will be displayed._
 
-**18\. Performing CPU Performance Analysis**
+#### 18. Performing CPU Performance Analysis
 
 Execute the following CPU benchmark:
 
@@ -1317,13 +1283,13 @@ Record the following values:
 - Average latency
 - Maximum latency
 
-**19\. Observation Table – Type-2 Hypervisor**
+#### 19. Observation Table - Type-2 Hypervisor
 
 Record the benchmark results in the following table.
 
 | **Parameter**          | **Observation**    |
 | ---------------------- | ------------------ |
-| Hypervisor             | VMware Workstation |
+| Hypervisor - VMware Workstation |
 | Hypervisor Type        | Type-2             |
 | Guest Operating System | Ubuntu             |
 | CPU Allocation         | 2 vCPU             |
@@ -1334,7 +1300,7 @@ Record the benchmark results in the following table.
 | Events per Second      | 639.70             |
 | Average Latency        | 1.56 milli sec     |
 
-**20\. Monitoring Resource Utilization in VMware Workstation**
+#### 20. Monitoring Resource Utilization in VMware Workstation
 
 Return to the VMware Workstation interface.
 
@@ -1365,7 +1331,7 @@ or:
 free -h
 ```
 
-**21\. Recording the Type-2 Hypervisor Results**
+#### 21. Recording the Type-2 Hypervisor Results
 
 Record the final benchmark results obtained from the VMware Workstation virtual machine.
 
@@ -1373,7 +1339,7 @@ Record the final benchmark results obtained from the VMware Workstation virtual 
 
 | **Performance Metric** | **Result**         |
 | ---------------------- | ------------------ |
-| Hypervisor             | VMware Workstation |
+| Hypervisor - VMware Workstation |
 | Hypervisor Type        | Type-2             |
 | CPU Configuration      | 2 vCPU             |
 | Memory Configuration   | 2 GB               |
@@ -1385,7 +1351,7 @@ Record the final benchmark results obtained from the VMware Workstation virtual 
 | Average Latency        | 1.56 milli second  |
 | Maximum Latency        | 7.78 milli second  |
 
-**22\. Shutting Down the Virtual Machine**
+#### 22. Shutting Down the Virtual Machine
 
 After completing the performance analysis, shut down the virtual machine properly.
 

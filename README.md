@@ -415,7 +415,7 @@ Store all screenshots using the following directory structure before pushing the
 
 ```
 ```text
-CC-lab1/
+CC-Experiment-01-Hypervisor-Analysis/
 |
 +-- screenshots/
 |   |
@@ -1571,7 +1571,7 @@ The empirical data demonstrates a clear performance superiority of **Proxmox VE 
 
 ### Folder Layout
 ```text
-CC-lab1/
+CC-Experiment-01-Hypervisor-Analysis/
 |
 +-- README.md                                  # Main Project & Benchmark Report
 +-- LAB_REPORT.md                              # Formal Academic Lab Report Submission

@@ -1418,7 +1418,7 @@ Shut Down Virtual Machine
 
 ### Type-1 Hypervisor Screenshot (Proxmox VE)
 
-Below is the verified screenshot [`screenshots/type1-proxmox/06-proxmox-sysbench-result.png`](file:///D:/Sem_5/CC/screenshots/type1-proxmox/06-proxmox-sysbench-result.png) captured directly from the Proxmox VE noVNC web console:
+Sysbench benchmark output captured directly from the Proxmox VE noVNC web console:
 
 ![Proxmox VE Type-1 Sysbench Result](screenshots/type1-proxmox/06-proxmox-sysbench-result.png)
 
@@ -1428,7 +1428,7 @@ Below is the verified screenshot [`screenshots/type1-proxmox/06-proxmox-sysbench
 
 ### Type-2 Hypervisor Screenshot (VMware Workstation)
 
-Below is the verified screenshot [`screenshots/type2-vmware/04-vmware-sysbench-result.png`](file:///D:/Sem_5/CC/screenshots/type2-vmware/04-vmware-sysbench-result.png) captured directly from VMware Workstation:
+Sysbench benchmark output captured directly from the VMware Workstation terminal:
 
 ![VMware Workstation Type-2 Sysbench Result](screenshots/type2-vmware/04-vmware-sysbench-result.png)
 
@@ -1473,35 +1473,17 @@ The following table summarizes the exact values recorded from the experimental b
 
 ---
 
-### Chart 1: CPU Throughput Comparison (Events / Sec)
+### Performance Analysis Charts
 
-![CPU Throughput Comparison](images/events_per_second_comparison.png)
+![Performance Analysis](results/performance-analysis.png)
 
-*Figure 3: CPU Throughput comparison showing Proxmox VE (+540.6% faster).*
+*Figure 3: CPU Throughput (Events/sec), Total Events processed, and Latency comparison (Min, Avg, 95th Percentile, Max) across both hypervisors — generated from actual benchmark results.*
 
----
-
-### Chart 2: CPU Latency Metrics Comparison
-
-![Latency Comparison](images/latency_comparison.png)
-
-*Figure 4: Latency comparison (Min, Avg, 95th Percentile, Max) across both hypervisors.*
-
----
-
-### Chart 3: Total Events Processed
-
-![Total Events Comparison](images/total_events_comparison.png)
-
-*Figure 5: Total Events completed in 10 seconds (17,195 vs 2,687).*
-
----
-
-### Chart 4: Comprehensive Performance Dashboard
-
-![Overall Performance Dashboard](images/overall_performance_dashboard.png)
-
-*Figure 6: Multi-panel performance evaluation dashboard.*
+**Key Observations from Charts:**
+- Proxmox VE processed **17,195 events** vs VMware's **2,687 events** in the same 10 seconds
+- Proxmox VE achieved **1,719.03 EPS** vs VMware's **268.48 EPS** — a **6.4x throughput advantage**
+- Proxmox VE average latency was **0.59 ms** vs VMware's **3.71 ms** — **6.3x lower latency**
+- Proxmox VE max latency spike was **2.82 ms** vs VMware's **9.82 ms** — far more consistent
 
 ---
 

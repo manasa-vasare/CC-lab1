@@ -15,7 +15,7 @@ Both hypervisors were deployed with identically configured **Ubuntu Virtual Mach
 
 ### Key Finding
 
-> **Proxmox VE (Type-1 Hypervisor) achieved 1,716.69 Events/sec compared to VMware Workstation's 1,364.78 Events/sec - demonstrating a +25.79% throughput advantage and a 20.55% reduction in average latency.**
+> **Proxmox VE (Type-1 Hypervisor) achieved 1,719.03 Events/sec compared to VMware Workstation's 1,364.78 Events/sec - demonstrating a +25.79% throughput advantage and a 20.55% reduction in average latency.**
 
 ---
 
@@ -1418,9 +1418,9 @@ Shut Down Virtual Machine
 
 ### Type-1 Hypervisor Screenshot (Proxmox VE)
 
-Below is the verified screenshot [`images/1.png`](file:///D:/Sem_5/CC/images/1.png) captured directly from the Proxmox VE noVNC web console:
+Below is the verified screenshot [`screenshots/type1-proxmox/06-proxmox-sysbench-result.png`](file:///D:/Sem_5/CC/screenshots/type1-proxmox/06-proxmox-sysbench-result.png) captured directly from the Proxmox VE noVNC web console:
 
-![Proxmox VE Type-1 Sysbench Result](images/1.png)
+![Proxmox VE Type-1 Sysbench Result](screenshots/type1-proxmox/06-proxmox-sysbench-result.png)
 
 *Figure 1: Proxmox VE (Type-1 Hypervisor) Sysbench Benchmark Console Output.*
 
@@ -1428,9 +1428,9 @@ Below is the verified screenshot [`images/1.png`](file:///D:/Sem_5/CC/images/1.p
 
 ### Type-2 Hypervisor Screenshot (VMware Workstation)
 
-Below is the verified screenshot [`images/2.png`](file:///D:/Sem_5/CC/images/2.png) captured directly from VMware Workstation:
+Below is the verified screenshot [`screenshots/type2-vmware/04-vmware-sysbench-result.png`](file:///D:/Sem_5/CC/screenshots/type2-vmware/04-vmware-sysbench-result.png) captured directly from VMware Workstation:
 
-![VMware Workstation Type-2 Sysbench Result](images/2.png)
+![VMware Workstation Type-2 Sysbench Result](screenshots/type2-vmware/04-vmware-sysbench-result.png)
 
 *Figure 2: VMware Workstation (Type-2 Hypervisor) Sysbench Benchmark Terminal Output.*
 
@@ -1448,13 +1448,13 @@ The following table summarizes the exact values recorded from the experimental b
 | **RAM Allocation** | 2 GB | 2 GB | Matched | Identical Memory |
 | **Disk Capacity** | 20 GB | 20 GB | Matched | Identical Storage |
 | **Benchmark Limit** | 20,000 Primes | 20,000 Primes | Matched | Identical Stress Test |
-| **Total Execution Time** | **10.0004 s** | **10.0007 s** | ~0.003% difference | Fixed 10s Window |
-| **Total Events Processed** | **17,169** | **13,650** | **+3,519 events (+25.78%)** | **Proxmox VE (Type-1)** |
-| **Events per Second (EPS)** | **1,716.69** | **1,364.78** | **+351.91 eps (+25.78%)** | **Proxmox VE (Type-1)** |
-| **Minimum Latency** | **0.57 ms** | **0.67 ms** | **-0.10 ms (-14.93%)** | **Proxmox VE (Faster)** |
-| **Average Latency** | **0.58 ms** | **0.73 ms** | **-0.15 ms (-20.55%)** | **Proxmox VE (Lower)** |
-| **95th Percentile Latency**| **0.65 ms** | **0.89 ms** | **-0.24 ms (-26.97%)** | **Proxmox VE (More Consistent)**|
-| **Maximum Latency** | **2.78 ms** | **4.06 ms** | **-1.28 ms (-31.53%)** | **Proxmox VE (Fewer Spikes)** |
+| **Total Execution Time** | **10.0012 s** | **10.0007 s** | ~0.003% difference | Fixed 10s Window |
+| **Total Events Processed** | **17,195** | **13,650** | **+3,545 events (+25.78%)** | **Proxmox VE (Type-1)** |
+| **Events per Second (EPS)** | **1,719.03** | **1,364.78** | **+354.25 eps (+25.78%)** | **Proxmox VE (Type-1)** |
+| **Minimum Latency** | **0.56 ms** | **0.67 ms** | **-0.10 ms (-14.93%)** | **Proxmox VE (Faster)** |
+| **Average Latency** | **0.59 ms** | **0.73 ms** | **-0.15 ms (-20.55%)** | **Proxmox VE (Lower)** |
+| **95th Percentile Latency**| **0.68 ms** | **0.89 ms** | **-0.24 ms (-26.97%)** | **Proxmox VE (More Consistent)**|
+| **Maximum Latency** | **2.82 ms** | **4.06 ms** | **-1.28 ms (-31.53%)** | **Proxmox VE (Fewer Spikes)** |
 
 ---
 
@@ -1493,7 +1493,7 @@ The following table summarizes the exact values recorded from the experimental b
 
 ![Total Events Comparison](images/total_events_comparison.png)
 
-*Figure 5: Total Events completed in 10 seconds (17,169 vs 13,650).*
+*Figure 5: Total Events completed in 10 seconds (17,195 vs 13,650).*
 
 ---
 
@@ -1515,7 +1515,7 @@ The empirical data demonstrates a clear performance superiority of **Proxmox VE 
 
 ### 2. CPU Scheduling & Context Switching
 - In Proxmox VE, guest vCPUs map directly to host Linux kernel POSIX threads scheduled by the **Completely Fair Scheduler (CFS)** operating at Ring 0.
-- In VMware Workstation, guest CPU execution competes with Windows host background services (e.g., Windows Defender, System Updates, Desktop Window Manager). The host OS scheduler introduces thread preemptions, leading to higher latency spikes (Max Latency: 4.06 ms on VMware vs 2.78 ms on Proxmox).
+- In VMware Workstation, guest CPU execution competes with Windows host background services (e.g., Windows Defender, System Updates, Desktop Window Manager). The host OS scheduler introduces thread preemptions, leading to higher latency spikes (Max Latency: 4.06 ms on VMware vs 2.82 ms on Proxmox).
 
 ### 3. Memory & Virtual Cache Access
 - Proxmox VE benefits from direct Extended Page Tables (EPT / NPT) hardware translation.
@@ -1526,7 +1526,7 @@ The empirical data demonstrates a clear performance superiority of **Proxmox VE 
 ## 9. Conclusion & Engineering Takeaways
 
 1. **Bare-metal dominance**: Proxmox VE (Type-1) delivers **+25.79% higher CPU throughput** and **20.55% lower average latency** compared to VMware Workstation (Type-2).
-2. **Predictable Latency**: Proxmox VE exhibits lower 95th percentile latency (0.65 ms vs 0.89 ms), making Type-1 hypervisors essential for latency-critical production enterprise workloads.
+2. **Predictable Latency**: Proxmox VE exhibits lower 95th percentile latency (0.68 ms vs 0.89 ms), making Type-1 hypervisors essential for latency-critical production enterprise workloads.
 3. **Use-Case Recommendation**:
    - **Type-1 (Proxmox VE / KVM / ESXi)**: Recommended for Cloud Data Centers, Production Enterprise Infrastructure, Database Servers, and High-Performance Computing (HPC).
    - **Type-2 (VMware Workstation / VirtualBox)**: Recommended for Local Software Development, Testing, Desktop Sandbox Environments, and Educational Labs.

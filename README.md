@@ -127,7 +127,7 @@ To guarantee scientific accuracy and eliminate resource skewing, identical confi
 | Resource Parameter | Proxmox VE (Type-1) | VMware Workstation (Type-2) | Status |
 | :--- | :--- | :--- | :--- |
 | **Virtual Machine Name** | `CC-Experiment1-type1` | `CC-Experiment1-Type2` | Standardized |
-| **VM Identifier** | `VMID 123` | `janzz-virtual-machine` | Standardized |
+| **VM Identifier** | `VMID 123` | `manasa-virtual-machine` | Standardized |
 | **Guest Operating System** | Ubuntu 24.04.3 LTS AMD64 | Ubuntu Linux 64-bit | Standardized |
 | **CPU Allocation** | 2 vCPU (1 Socket, 2 Cores) | 2 vCPU (1 Processor, 2 Cores) | Identical |
 | **CPU Type / Model** | `x86-64-v2-AES` | Host Passthrough / Default | Hardware Matched |

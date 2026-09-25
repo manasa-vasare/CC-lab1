@@ -414,6 +414,7 @@ Capture the completed comparison table.
 Store all screenshots using the following directory structure before pushing the experiment to GitHub.
 
 ```
+```text
 CC-lab1/
 |
 +-- screenshots/
@@ -440,6 +441,7 @@ CC-lab1/
 |   +-- performance-analysis.md
 |
 +-- README.md
+```
 ```
 
 
@@ -1568,27 +1570,27 @@ The empirical data demonstrates a clear performance superiority of **Proxmox VE 
 ## 10. Repository Structure & Reproduction
 
 ### Folder Layout
-
-```
+```text
 CC-lab1/
-│
-├── README.md                                  # Main Project & Benchmark Report
-├── LAB_REPORT.md                              # Formal Academic Lab Report Submission
-├── Lab-Manual-Hypervisor-Performance-Analysis (1).docx  # Reference Lab Manual Document
-│
-├── images/                                    # Screenshots & Generated Charts
-│   ├── 1.png                                  # Proxmox VE Sysbench Result Screenshot
-│   ├── 2.png                                  # VMware Workstation Sysbench Result Screenshot
-│   ├── events_per_second_comparison.png       # Throughput Comparison Graph
-│   ├── latency_comparison.png                 # Latency Metrics Graph
-│   ├── total_events_comparison.png            # Total Events Graph
-│   └── overall_performance_dashboard.png      # Multi-panel Dashboard
-│
-└── scripts/                                   # Automation & Plotting Scripts
-    ├── benchmark.sh                           # Sysbench Automation Script
-    ├── generate_plots.py                      # Matplotlib Visualization Generator
-    └── parse_sysbench.py                      # Results Parser & Ratio Calculator
+|
++-- README.md                                  # Main Project & Benchmark Report
++-- LAB_REPORT.md                              # Formal Academic Lab Report Submission
++-- Lab-Manual-Hypervisor-Performance-Analysis (1).docx  # Reference Lab Manual Document
+|
++-- images/                                    # Screenshots & Generated Charts
+|   +-- 1.png                                  # Proxmox VE Sysbench Result Screenshot
+|   +-- 2.png                                  # VMware Workstation Sysbench Result Screenshot
+|   +-- events_per_second_comparison.png       # Throughput Comparison Graph
+|   +-- latency_comparison.png                 # Latency Metrics Graph
+|   +-- total_events_comparison.png            # Total Events Graph
+|   +-- overall_performance_dashboard.png      # Multi-panel Dashboard
+|
++-- scripts/                                   # Automation & Plotting Scripts
+    +-- benchmark.sh                           # Sysbench Automation Script
+    +-- generate_plots.py                      # Matplotlib Visualization Generator
+    +-- parse_sysbench.py                      # Results Parser & Ratio Calculator
 ```
+
 
 ### How to Reproduce
 

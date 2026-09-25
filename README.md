@@ -414,7 +414,7 @@ Capture the completed comparison table.
 Store all screenshots using the following directory structure before pushing the experiment to GitHub.
 
 ```
-CC-Experiment-01-Hypervisor-Analysis/
+CC-lab1/
 |
 +-- screenshots/
 |   |
@@ -1570,7 +1570,7 @@ The empirical data demonstrates a clear performance superiority of **Proxmox VE 
 ### Folder Layout
 
 ```
-Cloud_computing/
+CC-lab1/
 │
 ├── README.md                                  # Main Project & Benchmark Report
 ├── LAB_REPORT.md                              # Formal Academic Lab Report Submission

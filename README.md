@@ -1551,23 +1551,5 @@ CC-Experiment-01-Hypervisor-Analysis/
 ```
 
 
-### How to Reproduce
-
-1. **Run Benchmark Script on VM**:
-   ```bash
-   chmod +x scripts/benchmark.sh
-   ./scripts/benchmark.sh
-   ```
-
-2. **Generate Plots**:
-   ```bash
-   python scripts/generate_plots.py
-   ```
-
-3. **Parse & Compare Results**:
-   ```bash
-   python scripts/parse_sysbench.py
-   ```
-
 ---
 *Laboratory Experiment conducted for Cloud Computing / Computer Networks Course.*

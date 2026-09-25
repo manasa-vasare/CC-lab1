@@ -9,7 +9,7 @@
 
 ## Executive Summary
 
-This repository contains the complete experimental setup, empirical benchmark data, performance visualization, and technical report comparing the CPU performance of a **Type-1 Bare-Metal Hypervisor - Proxmox VE)** and a **Type-2 Hosted Hypervisor - VMware Workstation)**.
+This repository contains the complete experimental setup, benchmark data, performance visualization, and technical report comparing the CPU performance of a **Type-1 Bare-Metal Hypervisor - Proxmox VE)** and a **Type-2 Hosted Hypervisor - VMware Workstation)**.
 
 Both hypervisors were deployed with identically configured **Ubuntu Virtual Machines** (2 vCPU, 2 GB RAM, 20 GB Disk). The standard `sysbench` CPU prime-number calculation benchmark (`--cpu-max-prime=20000`) was executed on both virtual machines under identical workload conditions.
 
@@ -25,11 +25,11 @@ Both hypervisors were deployed with identically configured **Ubuntu Virtual Mach
 2. [Hypervisor Architectural Comparison](#2-hypervisor-architectural-comparison)
 3. [Virtual Machine Specifications](#3-virtual-machine-specifications)
 4. [Experimental Procedure](#4-experimental-procedure)
-5. [Empirical Results & Screenshots](#5-empirical-results--screenshots)
+5. [Benchmark Results & Screenshots](#5-empirical-results--screenshots)
 6. [Performance Comparison Table](#6-performance-comparison-table)
 7. [Metric Explanations & Visualizations](#7-metric-explanations--visualizations)
 8. [Technical Analysis & Discussion](#8-technical-analysis--discussion)
-9. [Conclusion & Engineering Takeaways](#9-conclusion--engineering-takeaways)
+9. [Conclusion & Key Takeaways](#9-conclusion--engineering-takeaways)
 10. [Repository Structure & Reproduction](#10-repository-structure--reproduction)
 
 ---
@@ -139,6 +139,9 @@ To guarantee scientific accuracy and eliminate resource skewing, identical confi
 ---
 
 ## 4. Experimental Procedure
+
+<details>
+<summary><strong>Click to expand: Prerequisites</strong></summary>
 
 ### PREREQUISITES
 
@@ -410,6 +413,11 @@ Capture the completed comparison table.
 **File Name:** 01-hypervisor-performance-comparison.png
 
 
+
+</details>
+
+<details>
+<summary><strong>Click to expand: PART A (Type-1 Proxmox VE Setup)</strong></summary>
 
 ### PART A: PERFORMANCE ANALYSIS USING TYPE-1 HYPERVISOR – PROXMOX VE
 
@@ -894,6 +902,11 @@ _Alternatively, use the Shutdown option available in the Proxmox VE interface._
 _Verify that the VM status changes to Stopped._
 
 
+
+</details>
+
+<details>
+<summary><strong>Click to expand: PART B (Type-2 VMware Setup)</strong></summary>
 
 ### PART B: PERFORMANCE ANALYSIS USING TYPE-2 HYPERVISOR – VMWARE WORKSTATION
 
@@ -1411,10 +1424,9 @@ Record Performance Results
 Shut Down Virtual Machine
 ```
 
+</details>
 
-
-
-## 5. Empirical Results## 5. Empirical Results & Screenshots
+## 5. Benchmark Results & Screenshots
 
 ### Type-1 Hypervisor Screenshot (Proxmox VE)
 
@@ -1491,9 +1503,9 @@ The following table summarizes the exact values recorded from the experimental b
 
 ## 8. Technical Analysis & Discussion
 
-The empirical data demonstrates a clear performance superiority of **Proxmox VE (Type-1)** over **VMware Workstation (Type-2)** in CPU-bound computational workloads.
+The test data clearly shows that **Proxmox VE (Type-1)** is significantly faster than **VMware Workstation (Type-2)** in CPU-bound computational workloads.
 
-### 1. Architectural Overhead & Trap-and-Emulate Delays
+### 1. System Overhead
 - **Proxmox VE (Type-1)** utilizes Linux KVM, which interfaces directly with hardware Intel VT-x / AMD-V virtualization extensions. CPU instructions generated inside the VM execute directly in VMX root mode with minimal hypervisor interception.
 - **VMware Workstation (Type-2)** operates on top of Windows NT OS. Privileged guest CPU operations undergo double translation: first through VMware's VMM virtualization engine, and second through Windows kernel user-to-kernel mode context transitions (`NtSystemService`).
 
@@ -1507,7 +1519,7 @@ The empirical data demonstrates a clear performance superiority of **Proxmox VE 
 
 ---
 
-## 9. Conclusion & Engineering Takeaways
+## 9. Conclusion & Key Takeaways
 
 1. **Bare-metal dominance**: Proxmox VE (Type-1) delivers **+540.6% higher CPU throughput** and **84.1% lower average latency** compared to VMware Workstation (Type-2).
 2. **Predictable Latency**: Proxmox VE exhibits lower 95th percentile latency (0.68 ms vs 4.49 ms), making Type-1 hypervisors essential for latency-critical production enterprise workloads.

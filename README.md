@@ -1473,6 +1473,8 @@ The following table summarizes the exact values recorded from the experimental b
 
 ---
 
+> **Full Report:** [results/performance-analysis.md](results/performance-analysis.md)
+
 ### Performance Analysis Charts
 
 ![Performance Analysis](results/performance-analysis.png)

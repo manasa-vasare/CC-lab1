@@ -1577,4 +1577,4 @@ chmod +x scripts/benchmark.sh
 ```
 
 ---
-*Laboratory Experiment conducted for Cloud Computing / Computer Networks Course.*
+*Laboratory Experiment conducted for Cloud Computing Course.*

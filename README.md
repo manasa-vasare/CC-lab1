@@ -1561,6 +1561,7 @@ CC-Experiment-01-Hypervisor-Analysis/
 |
 +-- scripts/
 |   +-- benchmark.sh
+|   +-- parse_sysbench.py
 |
 +-- README.md
 ```
@@ -1574,6 +1575,11 @@ To execute the automated benchmark on any Ubuntu/Debian virtual machine:
 ```bash
 chmod +x scripts/benchmark.sh
 ./scripts/benchmark.sh
+```
+
+To parse the results and output a comparison table to the terminal:
+```bash
+python scripts/parse_sysbench.py
 ```
 
 ---

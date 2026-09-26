@@ -1559,9 +1559,22 @@ CC-Experiment-01-Hypervisor-Analysis/
 +-- results/
 |   +-- performance-analysis.md
 |
++-- scripts/
+|   +-- benchmark.sh
+|
 +-- README.md
 ```
 
+### Automation Script
+
+To guarantee reproducible results across different hypervisors, this repository includes an automation script that captures hardware specifications, auto-installs dependencies, and runs the identical Sysbench CPU test.
+
+To execute the automated benchmark on any Ubuntu/Debian virtual machine:
+
+```bash
+chmod +x scripts/benchmark.sh
+./scripts/benchmark.sh
+```
 
 ---
 *Laboratory Experiment conducted for Cloud Computing / Computer Networks Course.*

@@ -7,7 +7,7 @@
 
 ---
 
-## Executive Summary
+##  Summary
 
 This repository contains the complete experimental setup, benchmark data, performance visualization, and technical report comparing the CPU performance of a **Type-1 Bare-Metal Hypervisor - Proxmox VE)** and a **Type-2 Hosted Hypervisor - VMware Workstation)**.
 
@@ -1566,21 +1566,7 @@ CC-Experiment-01-Hypervisor-Analysis/
 +-- README.md
 ```
 
-### Automation Script
 
-To guarantee reproducible results across different hypervisors, this repository includes an automation script that captures hardware specifications, auto-installs dependencies, and runs the identical Sysbench CPU test.
-
-To execute the automated benchmark on any Ubuntu/Debian virtual machine:
-
-```bash
-chmod +x scripts/benchmark.sh
-./scripts/benchmark.sh
-```
-
-To parse the results and output a comparison table to the terminal:
-```bash
-python scripts/parse_sysbench.py
-```
 
 ---
 *Laboratory Experiment conducted for Cloud Computing Course.*
